@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block template %}
+<div class="page inner inner_3">
+{% endblock %}
+
+{% block header %}
+    {{ Parts.Header() }}
+{% endblock %}
+
+{% block content %}
+<section class="top-image">
+    <div class="overlay"></div>
+    <div class="text">
+        <h2>Информационная страница</h2>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        {{ Parts.InfoLeft(1) }}
+        {{ Parts.InfoRight(2) }}
+    </div>
+</section>
+<section class="page-section gray-section">
+    <div class="container">
+        <h3>Заголовок на всякий случай</h3>
+        <p>Линейка мебели ПГЛ - одна из самых успешных и проверенных у нашей компании. Это самая надёжная и самая долговечная мебель для любых условий эксплуатации.  Конструктивно состоит из алюминиевого, глубоко анодированного каркаса и панелей из высокопрочного HPL -пластика</p>
+        <p>Мебель ПГЛ уже больше десяти лет успешно эксплуатируется в химических и биологических лабораториях, на производстве, в медицинских учреждениях,  школах  - везде, где требуется надёжность, долговечность и устойчивость к агрессивным средам.</p>
+        {{ Parts.Table('large', 5, 5) }}
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        {{ Parts.InfoRight(3) }}
+        {{ Parts.InfoLeft(4) }}
+    </div>
+</section>
+<section class="page-section gray-section category-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(5, "ВШ-1 Базовый") }}
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(6, "ВШ-2 Универсальный") }}
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(7, "ВШ-3 Специальный") }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

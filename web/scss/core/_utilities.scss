@@ -1,0 +1,104 @@
+// Utilities
+//////////////////////////////////////////////////////
+
+.overlay {
+    @extend %overlay;
+}
+
+// Типы секций
+.page-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include sm-and-xs {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    &.gray-section {
+        background: $gray-lighter;
+    }
+
+    &.category-section {
+        padding-bottom: 0;
+    }
+
+    &.double-section {
+        @include not-xs {
+            .row {
+                > div {
+                    &:first-child {
+                        padding-right: $size * 4;
+                    }
+                    &:last-child {
+                        padding-left: $size * 4;
+                    }
+                }
+            }
+        }
+        @include md {
+            .row {
+                > div {
+                    &:first-child {
+                        padding-right: $size * 3;
+                    }
+                    &:last-child {
+                        padding-left: $size * 3;
+                    }
+                }
+            }
+        }
+        @include sm {
+            .row {
+                > div {
+                    &:first-child {
+                        padding-right: $size * 2;
+                    }
+                    &:last-child {
+                        padding-left: $size * 2;
+                    }
+                }
+            }
+        }
+        @include xs {
+            .row {
+                > div {
+                    &:first-child {
+                        margin-bottom: $size * 2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card {
+    margin-bottom: $size;
+    background: $white;
+    text-align: left;
+    padding: $size;
+    box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+    @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+
+    @include sm-and-xs {
+        padding: $size / 2;
+    }
+}
+
+
+// Анимации
+
+.fade-on {
+    animation: fadeOn $transition-duration ease-out forwards;
+}
+.fade-off {
+    animation: fadeOut $transition-duration ease-out forwards;
+}
+
+.rotate180 {
+    animation: rotate180 $transition-duration ease-out forwards;
+}
+
+.rotate0 {
+    animation: rotate0 $transition-duration ease-out forwards;
+}

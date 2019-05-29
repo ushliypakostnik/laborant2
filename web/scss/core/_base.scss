@@ -1,0 +1,103 @@
+// Main Elements
+//////////////////////////////////////////////////////
+
+// @media all {}
+
+body {
+    color: $text-color;
+    background: $text-color-lighten;
+    padding: 0;
+    quotes: "\00ab" "\00bb";
+
+    overflow-x: hidden; // not scrolling horizontal body
+
+    backface-visibility: hidden;
+
+    ::selection {
+        background: fade-out($active-color, ($fade * 2) / 100%);
+    }
+}
+
+section,
+div,
+input,
+select,
+button,
+a {
+    box-sizing: border-box;
+}
+
+section {
+}
+
+// Ccылки
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $black;
+    }
+
+    &:hover, &:active , &:focus {
+        outline: none !important;
+        text-decoration: none;
+    }
+}
+
+// Списки по умолчанию
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    // Списки с отступом и маркерами
+    &.list-style {
+        @extend %list-style;
+    }
+}
+
+// Секционно-смысловые блоки
+main, article, aside, figure, address {
+    margin: 0;
+    padding: 0;
+}
+
+// Кнопки
+button, a {
+    outline: none !important;
+
+    &:hover, &:active, &:focus {
+        outline: none !important;
+    }
+}
+
+// Поля ввода
+
+input, textarea, select {
+
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+// WebKit Scrollbar
+//////////////////////////////////////////////////////
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: $size / 2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $text-color-dark-02;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $text-color-dark;
+}

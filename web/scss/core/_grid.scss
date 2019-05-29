@@ -1,0 +1,55 @@
+// Grids
+//////////////////////////////////////////////////////
+
+// Примесь для построения простой резиновой сетки из заданного числа колонок с заданным в процентах резиновым отступом между ними
+// @author Левон Гамбарян
+//
+// @param {Number} $columns - количество колонок
+// @param {Percentage} $gutter - отступ в процентах
+//
+@mixin make-grid($columns, $gutter) {
+
+    // Вычисляем ширину колонки
+    $column-width: (100% - ($gutter * ($columns - 1))) / $columns;
+
+    > div {
+        width: $column-width;
+
+        // На мобильных - разворачиваем сетку в столбец
+        @include mobile {
+            width: 100%
+        }
+
+        // Выставляем отступ всем колонкам кроме последней
+        @for $i from 1 to $columns {
+            &:nth-child(#{$i}) {
+                margin-right: $gutter;
+
+                // На мобильных выставляем нулевой отступ всем колонкам
+                @include mobile {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        // У последней колонки нет оступа
+        &:nth-child(#{$columns}) {
+            margin-right: 0;
+        }
+    }
+}
+
+.grid {
+    > div {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &.grid-for-two {
+        @include make-grid (2, 1.4%);
+    }
+
+    &.grid-for-three {
+        @include make-grid (3, 1.4%);
+    }
+}

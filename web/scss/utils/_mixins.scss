@@ -1,0 +1,195 @@
+// Project mixins
+//////////////////////////////////////////////////////
+
+// Media
+
+// Десктопы
+@mixin desktop {
+    @media (min-width: ($desktop + 1px)) {
+        @content;
+    }
+}
+
+@mixin not-desktop {
+    @media (max-width: $desktop) {
+        @content;
+    }
+}
+
+
+@mixin lg {
+    @media (min-width: $screen-lg) {
+        @content;
+    }
+}
+
+
+// Декстопы и таблетки
+@mixin desktop-and-tablet {
+    @media (min-width: ($mobile + 1px)) {
+        @content;
+    }
+}
+
+// Таблетки и мобилы
+@mixin tablet-and-mobile {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+// Таблетки
+@mixin tablet {
+    @media (min-width: ($mobile + 1px)) and (max-width: $tablet) {
+        @content;
+    }
+}
+
+// Мобилы
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin lg-and-md {
+    @media (min-width: $screen-md) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin md-and-sm {
+    @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin sm-and-xs {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+
+@mixin xs {
+    @media (max-width: $screen-xs-max) {
+        @content;
+    }
+}
+
+@mixin not-xs {
+    @media (min-width: $screen-sm) {
+        @content;
+    }
+}
+
+
+@mixin min {
+    @media (max-width: 360px) {
+        @content;
+    }
+}
+
+
+// Retina
+@mixin retina {
+    @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
+
+// Elements
+
+// Примесь для покраски кнопок
+@mixin btn-color($color, $background) {
+    background-color: $background;
+    color: $color;
+    transition: background $transition-duration $transition-timing-function;
+
+    &:hover, &:active {
+        background-color: lighten($background, $fade / 100%);
+        color: $color;
+    }
+
+    @include tablet-and-mobile {
+        &, &:hover, &:focus {
+            background-color: $background;
+            color: $color;
+        }
+        &:active {
+            background-color: lighten($background, $fade);
+            color: $color;
+        }
+    }
+}
+
+// Примесь для покраски ссылок
+@mixin link-style($color, $color-hover) {
+    transition: color $transition-duration $transition-timing-function;
+
+    &, &:focus {
+        color: $color;
+    }
+    &:hover, &:active {
+        color: $color-hover;
+    }
+
+    @include tablet-and-mobile {
+        &, &:hover, &:focus {
+           color: $color;
+        }
+        &:active {
+            color: $color-hover;
+        }
+    }
+}
+
+// Transform
+
+// Multi-transition
+@mixin transition($transitions...) {
+    $unfoldedTransitions: ();
+    @each $transition in $transitions {
+        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+    }
+
+    transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition($transition) {
+    // Default values
+    $property: all;
+    $duration: $transition-duration;
+    $easing: null; // Browser default is ease, which is what we want
+    $delay: null; // Browser default is 0, which is what we want
+    $defaultProperties: ($property, $duration, $easing, $delay);
+
+    // Grab transition properties if they exist
+    $unfoldedTransition: ();
+    @for $i from 1 through length($defaultProperties) {
+        $p: null;
+        @if $i <= length($transition) {
+            $p: nth($transition, $i)
+        } @else {
+            $p: nth($defaultProperties, $i)
+        }
+        $unfoldedTransition: append($unfoldedTransition, $p);
+    }
+
+    @return $unfoldedTransition;
+}

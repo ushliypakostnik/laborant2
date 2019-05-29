@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block template %}
+<div class="page inner inner_2">
+{% endblock %}
+
+{% block header %}
+    {{ Parts.Header() }}
+{% endblock %}
+
+{% block content %}
+<section class="top-image">
+    <div class="overlay"></div>
+    <div class="text">
+        <h2>Вытяжные шкафы на металлокаркасе</h2>
+    </div>
+</section>
+<section class="page-section gray-section">
+    <div class="container">
+        <h3>Заголовок на всякий случай</h3>
+        <p>Линейка мебели ПГЛ - одна из самых успешных и проверенных у нашей компании. Это самая надёжная и самая долговечная мебель для любых условий эксплуатации.  Конструктивно состоит из алюминиевого, глубоко анодированного каркаса и панелей из высокопрочного HPL -пластика</p>
+        <p>Мебель ПГЛ уже больше десяти лет успешно эксплуатируется в химических и биологических лабораториях, на производстве, в медицинских учреждениях,  школах  - везде, где требуется надёжность, долговечность и устойчивость к агрессивным средам.</p>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        {{ Parts.TypeCard(1, "ВШ-1 Базовый") }}
+        {{ Parts.TypeCard(2, "ВШ-2 Универсальный") }}
+        {{ Parts.TypeCard(3, "ВШ-3 Специальный") }}
+    </div>
+</section>
+{% endblock %}

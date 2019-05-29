@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block template %}
+<div class="page inner inner_1">
+{% endblock %}
+
+{% block header %}
+    {{ Parts.Header() }}
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="swiper-container slider-inner" id="slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide-1">
+                <div class="overlay"></div>
+                <div class="text">
+                    <h2>ВШ-1 Базовый</h2>
+                    <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                </div>
+            </div>
+            <div class="swiper-slide slide-2">
+                <div class="overlay"></div>
+                <div class="text">
+                    <h2>ВШ-2 Универсальный</h2>
+                    <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                </div>
+            </div>
+            <div class="swiper-slide slide-3">
+                <div class="overlay"></div>
+                <div class="text">
+                    <h2>ВШ-3 Специальный</h2>
+                    <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                </div>
+            </div>
+            <div class="swiper-slide slide-4">
+                <div class="overlay"></div>
+                <div class="text">
+                    <h2>ВШ-3 для летучих кислот</h2>
+                    <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                </div>
+            </div>
+            {% for i in range(1, 9) %}
+            <div class="swiper-slide slide-5">
+                <div class="overlay"></div>
+                <div class="text">
+                    <h2>ВШ для какой-то другой фигни</h2>
+                    <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        <h1>Вытяжные шкафы</h1>
+        <p>Линейка мебели ПГЛ - одна из самых успешных и проверенных у нашей компании. Это самая надёжная и самая долговечная мебель для любых условий эксплуатации.  Конструктивно состоит из алюминиевого, глубоко анодированного каркаса и панелей из высокопрочного HPL -пластика</p>
+        <h3>Заголовок на всякий случай</h3>
+        <p>Мебель ПГЛ уже больше десяти лет успешно эксплуатируется в химических и биологических лабораториях, на производстве, в медицинских учреждениях,  школах  - везде, где требуется надёжность, долговечность и устойчивость к агрессивным средам.</p>
+        <p>Серия мебели  ПГЛ обладает повышенной устойчивостью к химическому воздействию  кислот, щелочей, растворителей и т.д.</p>
+        <p>На эту линейку мебели получено регистрационное удостоверение Минздравсоцразвития, "медицинская мебель, вид медицинского изделия 156900".</p>
+    </div>
+</section>
+<section class="page-section gray-section category-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(1, "ВШ-1 Базовый") }}
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(2, "ВШ-2 Универсальный") }}
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(3, "ВШ-3 Специальный") }}
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(4, "ВШ-3 для летучих кислот") }}
+            </div>
+            {% for i in range(1, 9) %}
+            <div class="col-xs-12 col-sm-4">
+                {{ Parts.CategoryCard(5, "ВШ для какой-то другой фигни") }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

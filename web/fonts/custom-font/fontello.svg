@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="close" unicode="&#xe800;" d="m529 350l471-471-29-29-471 471-471-471-29 29 471 471-471 471 29 29 471-471 471 471 29-29-471-471z" horiz-adv-x="1000" />
+<glyph glyph-name="up" unicode="&#xe801;" d="m1000 115l-29-30-471 471-471-471-29 30 500 500 500-500z" horiz-adv-x="1000" />
+<glyph glyph-name="down" unicode="&#xe802;" d="m500 85l-500 500 29 30 471-471 471 471 29-30-500-500z" horiz-adv-x="1000" />
+<glyph glyph-name="right" unicode="&#xe803;" d="m265-150l-30 29 471 471-471 471 30 29 500-500-500-500z" horiz-adv-x="1000" />
+<glyph glyph-name="left" unicode="&#xe804;" d="m235 350l500 500 30-29-471-471 471-471-30-29-500 500z" horiz-adv-x="1000" />
+<glyph glyph-name="navicon" unicode="&#xe805;" d="m0 590v42h1000v-42h-1000z m1000-261v42h-1000v-42h1000z m0-260v41h-1000v-41h1000z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

@@ -1,0 +1,103 @@
+
+.main {
+    $image-path: $image-path + 'main/';
+
+    @for $i from 1 to 4 {
+        .image-#{$i} {
+            background: url("#{$image-path}image_#{$i}.jpg") 50% 50% no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &__section03 {
+        @include lg {
+            .row {
+                > div {
+                    &:first-child {
+                        .category-card {
+                            margin-left: 0;
+                        }
+                    }
+                    &:last-child {
+                        .category-card {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.inner {
+    @for $p from 1 to ($pages + 1) {
+        &.inner_#{$p} {
+            $image-path: $image-path + 'inner_#{$p}/';
+
+            @for $i from 1 to 13 {
+                .image-#{$i} {
+                    background: url("#{$image-path}image_#{$i}.jpg") 50% 50% no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+}
+
+.top-image {
+    position: relative;
+    min-height: 400px;
+
+    @include xs {
+      min-height: 250px;
+    }
+
+    .text {
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+        padding-left: 4vw;
+
+        @include xs {
+            bottom: 25px;
+        }
+
+        @include min {
+            bottom: 15px;
+        }
+    }
+
+    h2 {
+        color: $white;
+        @include text($sans-font-family, $font-size-large, $sans-bold-font-weight);
+
+        @include md {
+            @include text($sans-font-family, $font-size-large, $sans-bold-font-weight);
+        }
+
+        @include sm {
+            @include text($sans-font-family, round($font-size-large * 0.75), $sans-bold-font-weight);
+        }
+
+        @include xs {
+            @include text($sans-font-family, round($font-size-large * 0.6), $sans-bold-font-weight);
+        }
+
+        @include min {
+            @include text($sans-font-family, round($font-size-large * 0.5), $sans-bold-font-weight);
+        }
+    }
+
+    .overlay {
+        background-image: linear-gradient(rgba(47,59,63, 0), rgba(47,59,63, 0.5));
+    }
+
+    @for $p from 1 to ($pages + 1) {
+        .inner_#{$p} & {
+            $image-path: $image-path + 'inner_#{$p}/';
+
+            background: url("#{$image-path}top.jpg") 50% 50% no-repeat;
+            background-size: cover;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+// Project variables
+//////////////////////////////////////////////////////
+
+$image-path: "../img/";
+
+$fade: 8%;
+
+$size: 20px;
+
+$pages: 50;
+
+
+// Colors
+//////////////////////////////////////////////////////
+
+$white: #fff;
+$black: #000;
+
+$gray-lighter: rgb(240, 243, 245);
+
+// $text-color: #504a6b; // from logo
+// $text-color: #6c7a89; // color1
+//$text-color: darken(#6c7a89, $fade); // color2
+$text-color: #2f3b3f; // color3
+$text-color-light: lighten($text-color, ($fade * 4));
+$text-color-lighten: lighten($text-color, ($fade * 8));
+$text-color-dark: darken($text-color, $fade);
+$text-color-dark-02: darken($text-color, ($fade * 2));
+$text-color-darken: darken($text-color, ($fade * 3));
+
+$red: lighten(#d91e18, ($fade * 3));
+$orange: #f8b000;
+
+$main-color: $orange;
+
+$main-color-rgba: rgba(41, 45, 150, 255);
+$text-color-rgba: rgba(80, 74, 107, 255);
+
+$active-color: $red;
+
+//$light-color: lighten($text-color, ($fade * 6)); // color1
+//$light-color: lighten($text-color, ($fade * 9)); // color2
+$light-color: lighten($text-color, ($fade * 9.25)); // color3
+
+$border-color: lighten($text-color, ($fade * 8));
+
+$disabled-color: darken($light-color, ($fade * 4));
+
+$shadow-color: fade-out($black, 0.9);
+$shadow-color-02: rgba(0, 0, 0, 0.07);
+$text-shadow-color: $black;
+
+
+// Grid and Sizes
+//////////////////////////////////////////////////////
+
+// Bootstrap Grid Gutter
+$grid-gutter-width: $size;
+
+// Layouts z-indexes
+$body-layout: 900;
+$fixed-layout: 1200;
+$overlay-layout: 1300;
+$panels-layout: 2000;
+$popups-layout: 1500;
+
+// Брекпоинт между мониторами и очень большими мониторами
+$desktop: 1700px;
+
+// Брекпоинт между очень планшетами и мониторами
+$tablet: $screen-md-max;
+
+// Брекпоинт между гаджетами и остальными экранами
+$mobile: $screen-xs-max;
+
+$border-width: 2px;
+
+
+// Effects
+//////////////////////////////////////////////////////
+
+$transition-duration: 0.15s;
+$transition-timing-function: linear;
+$transition-delay: 0s;
+
+$shadow-coords-x: 0;
+$shadow-coords-y: 1px;
+$shadow-size: 15px;
+$shadow-stretch: 1px;
+
+$text-shadow-coords-x: 0;
+$text-shadow-coords-y: 1px;
+$text-shadow-size: 4px;
+
+
+// Override Bootstrap variables
+//////////////////////////////////////////////////////
+
+$link-color: $main-color;
+$link-hover-color: darken($link-color, $fade);
+
+$border-radius-base: 0;
+$border-radius-xs: 3px;
+$border-radius-small: 5px;
+$border-radius-large: 0;
+
+$input-color-placeholder: $disabled-color;
+$input-color: $text-color;
+$input-bg: $light-color;
+$input-border: $text-color;
+$input-border-focus: $active-color;

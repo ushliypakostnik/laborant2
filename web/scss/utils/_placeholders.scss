@@ -1,0 +1,68 @@
+// Project placeholders
+//////////////////////////////////////////////////////
+
+
+// Помошник для оборачивания контента в правильные кавычки
+%quote-content {
+    &:before {
+        content: open-quote;
+    }
+    &:after {
+        content: close-quote;
+    }
+    &:before, &:after {
+        color: inherit;
+    }
+}
+
+
+// Помощник для защиты строк многоточием
+%text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// Для проблем с переносом длинных слов
+%inline-list-protection {
+    -ms-word-break: break-all;
+        word-break: break-all;
+            word-break: break-word;
+    -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+            -ms-hyphens: auto;
+                hyphens: auto;
+}
+
+
+// Помощник для рисования оверлея во весь родительский блок
+%overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include size(100%, 100%);
+    overflow: hidden;
+}
+
+
+// Списки с отступом и маркерами
+%list-style {
+    list-style-type: disc;
+    padding-left: $size;
+    margin-bottom: $size;
+
+    > li {
+        margin-bottom: $size / 4;
+    }
+}
+
+
+// Помощник для переворачивания вверх каретки Bootstrap
+%caret-up {
+    border-top: 0;
+    border-bottom: $caret-width-base solid;
+    content: "";
+}

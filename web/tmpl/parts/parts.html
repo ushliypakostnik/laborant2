@@ -1,0 +1,434 @@
+{% macro PanelMenu() %}
+<ul class="panel__menu" role="menu">
+    <li>
+        <a href="#">Каталог</a><a href="#" class="menu__open"><span class="icon icon-down"></span></a>
+        <ul class="panelmenu__inner">
+            <li><a href="#">Лабораторная мебель</a></li>
+            <li><a href="#">Медицинская мебель</a></li>
+            <li><a href="#">Вытяжные шкафы</a></li>
+        </ul>
+    </li><li>
+        <a href="#">Инфоцентр</a><a href="#" class="menu__open"><span class="icon icon-down"></span></a>
+        <ul class="panelmenu__inner">
+            <li>
+                <a href="#">Материалы</a><a href="#" class="menu__open inner"><span class="icon icon-down"></span></a>
+                <ul class="panelmenu__inner">
+                    <li><a href="#">Пластик</a></li>
+                    <li><a href="#">Ал. Профиль</a></li>
+                    <li><a href="#">Лабростоун</a></li>
+                    <li><a href="#">Триплекс</a></li>
+                    <li><a href="#">Таблица химостойкости</a></li>
+                    <li><a href="#">Палитра цветов</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Скидки</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Сертификаты</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">О Компании</a><a href="#" class="menu__open"><span class="icon icon-down"></span></a>
+        <ul class="panelmenu__inner">
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Информация</a></li>
+            <li><a href="#">О компании</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Галерея</a><a href="#" class="menu__open"><span class="icon icon-down"></span></a>
+        <ul class="panelmenu__inner">
+            <li><a href="#">Готовые проекты</a></li>
+            <li><a href="#">Шоурум</a></li>
+        </ul>
+    </li>
+</ul>
+{% endmacro %}
+
+{% macro Panel() %}
+<div class="page__panel">
+    <a href="#" id="panelClose"><span class="icon icon-close"></span></a>
+
+    {{ PanelMenu() }}
+</div>
+{% endmacro %}
+
+{% macro Header() %}
+<header class="page__header" role="banner">
+    <div class="header__top">
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" id="searchTop" />
+            <span class="fa fa-search form-control-feedback"></span>
+        </div>
+        <div class="container-fluid">
+            <div class="place"><small>+7(812)</small> 318 50 90</div><div class="place"><small>+7(800)</small> 555 77 79<span class="">звонок по России бесплатный</span></div>
+        </div>
+    </div>
+    <nav role="navigation">
+        <div class="container-fluid">
+            <div class="hidden-md hidden-lg" id="panelOpen"><a href="#"><i class="icon icon-navicon"></i></a></div>
+            <a href="#" class="logo"></a>
+            <div class="header__right ">
+                {{ HeaderMenu02() }}
+            </div>
+        </div>
+    </nav>
+</header>
+{% endmacro %}
+
+{% macro PanelRight(i) %}
+<div class="panelright panelright-{{ i }}">
+    {% if i == 1 %}
+    <a href="#" class="panelright__trigger"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    {% elif i == 2 %}
+    <a href="#" class="panelright__trigger"><i class="fa fa-phone" aria-hidden="true"></i></a>
+    {% elif i == 3 %}
+    <a href="#" class="panelright__trigger"><i class="fa fa-globe" aria-hidden="true"></i></a>
+    {% endif %}
+    <form id="testForm" role="form">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" required />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required />
+        </div>
+        <a type="submit" href="#" role="button" class="btn btn-lg btn-block btn-main" id="loginBtn">Отправить</a>
+    </form>
+</div>
+{% endmacro %}
+
+{% macro HeaderMenu() %}
+<ul class="header__menu hidden-xs hidden-sm" role="menu">
+    <li><a href="#">{{ MenuDropdown("Каталог") }}</a></li
+    ><li><a href="#">{{ MenuDropdown("Инфоцентр") }}</a></li
+    ><li><a href="#">{{ MenuDropdown("О Компании") }}</a></li
+    ><li><a href="#">{{ MenuDropdown("Галерея") }}</a></li>
+</ul>
+{% endmacro %}
+
+{% macro MenuDropdown(itemname) %}
+<div class="dropdown hover-dropdown menu-dropdown">
+    <a href="#" role="button" class="dropdown-toggle" type="button" data-toggle="dropdown">{{ itemname }}<span class="icon icon-down"></span></a>
+    <ul class="dropdown-menu pull-right" role="menu">
+        <li><a href="#">Пункт 1</a></li>
+        <li><a href="#">Пункт 2</a></li>
+        <li><a href="#">Пункт 3</a></li>
+        <li><a href="#">Пункт 4</a></li>
+        <li><a href="#">Пункт 5</a></li>
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro HeaderMenu02() %}
+<ul class="header__menu nav nav-tabs hidden-xs hidden-sm">
+    <li><a href="#menu_1-1" data-toggle="tab">Каталог<span class="icon icon-down"></span></a></li
+    ><li><a href="#menu_1-2" data-toggle="tab">Инфоцентр<span class="icon icon-down"></span></a></li
+    ><li><a href="#menu_1-3" data-toggle="tab">О Компании<span class="icon icon-down"></span></a></li
+    ><li><a href="#menu_1-4" data-toggle="tab">Галерея<span class="icon icon-down"></span></a></li>
+</ul>
+<div class="menu__content tab-content">
+    <div class="content__pane tab-pane fade more-pane" id="menu_1-1">{{ InnerMenu01(1) }}</div>
+    <div class="content__pane tab-pane fade" id="menu_1-2">{{ InnerMenu01(2) }}</div>
+    <div class="content__pane tab-pane fade part-pane" id="menu_1-3">{{ InnerMenu01(3) }}</div>
+    <div class="content__pane tab-pane fade" id="menu_1-4">{{ InnerMenu01(4) }}</div>
+</div>
+{% endmacro %}
+
+{% macro InnerMenu01(i) %}
+    {% if i == 1 %}
+    <ul class="menu_inner menu_inner-1 nav nav-tabs">
+        <li class="active"><a href="#menu_2-1-1" data-toggle="tab">Лабораторная мебель<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-1-2" data-toggle="tab">Медицинская мебель<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-1-3" data-toggle="tab">Вытяжные шкафы<span class="icon icon-right"></span></a></li>
+    </ul>
+    <div class="inner__content tab-content">
+        <div class="tab-pane active" id="menu_2-1-1">{{ MenuContent00(13, 1, '1-1') }}</div>
+        <div class="tab-pane" id="menu_2-1-2">{{ MenuContent00(8, 2, '1-2') }}</div>
+        <div class="tab-pane" id="menu_2-1-3">{{ MenuContent00(6, 3, '1-3') }}</div>
+    </div>
+    {% elif i == 2 %}
+    <ul class="menu_inner menu_inner-2 menu_inner--with_inner nav nav-tabs">
+        <li class="active"><a href="#menu_2-2-1" data-toggle="tab">Материалы<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-2-2" data-toggle="tab">Скидки<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-2-3" data-toggle="tab">Новости<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-2-4" data-toggle="tab">Сертификаты<span class="icon icon-right"></span></a></li>
+    </ul>
+    <div class="inner__content tab-content">
+        <div class="tab-pane active" id="menu_2-2-1">{{ InnerMenu02() }}</div>
+        <div class="tab-pane" id="menu_2-2-2">{{ MenuContent01(9, 1, '2-2') }}</div>
+        <div class="tab-pane" id="menu_2-2-3">{{ MenuContent01(7, 2, '2-3') }}</div>
+        <div class="tab-pane" id="menu_2-2-4">{{ MenuContent01(6, 3, '2-4') }}</div>
+    </div>
+    {% elif i == 3 %}
+    <ul class="menu_inner menu_inner-3 nav nav-tabs">
+        <li class="active"><a href="#menu_2-3-1" data-toggle="tab">Контакты<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-3-2" data-toggle="tab">Информация<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-3-3" data-toggle="tab">О компании<span class="icon icon-right"></span></a></li>
+    </ul>
+    <div class="inner__content tab-content">
+        <div class="tab-pane active" id="menu_2-3-1">{{ MenuContent01(3, 1, '3-1') }}</div>
+        <div class="tab-pane" id="menu_2-3-2">{{ MenuContent01(2, 2, '3-2') }}</div>
+        <div class="tab-pane" id="menu_2-3-3">{{ MenuContent01(4, 3, '3-3') }}</div>
+    </div>
+    {% else %}
+    <ul class="menu_inner menu_inner-4 nav nav-tabs">
+        <li class="active"><a href="#menu_2-4-1" data-toggle="tab">Готовые проекты<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_2-4-2" data-toggle="tab">Шоурум<span class="icon icon-right"></span></a></li>
+    </ul>
+    <div class="inner__content tab-content">
+        <div class="tab-pane active" id="menu_2-4-1">{{ MenuContent01(9, 1, '4-1') }}</div>
+        <div class="tab-pane" id="menu_2-4-2">{{ MenuContent01(9, 2, '4-2') }}</div>
+    </div>
+{% endif %}
+{% endmacro %}
+
+{% macro InnerMenu02() %}
+    <ul class="menu_inner menu_inner_inner nav nav-tabs">
+        <li class="active"><a href="#menu_3-1" data-toggle="tab">Пластик<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_3-2" data-toggle="tab">Ал. Профиль<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_3-3" data-toggle="tab">Лабростоун<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_3-4" data-toggle="tab">Триплекс<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_3-5" data-toggle="tab">Таблица химостойкости<span class="icon icon-right"></span></a></li
+        ><li><a href="#menu_3-6" data-toggle="tab">Палитра цветов<span class="icon icon-right"></span></a></li>
+    </ul>
+    <div class="inner__content tab-content">
+        <div class="tab-pane active" id="menu_3-1">{{ MenuContent02(7, 1, '2-1') }}</div>
+        <div class="tab-pane" id="menu_3-2">{{ MenuContent02(4, 2, '2-1') }}</div>
+        <div class="tab-pane" id="menu_3-3">{{ MenuContent02(2, 3, '2-1') }}</div>
+        <div class="tab-pane" id="menu_3-4">{{ MenuContent02(3, 4, '2-1') }}</div>
+        <div class="tab-pane" id="menu_3-5">{{ MenuContent02(2, 5, '2-1') }}</div>
+        <div class="tab-pane" id="menu_3-6">{{ MenuContent02(3, 6, '2-1') }}</div>
+    </div>
+{% endmacro %}
+
+{% macro MenuContent00(n, t, m) %}{% for i in range(1, n) %}<a href="#" class="content__item">
+        {% if t == 1 %}
+        <div class="image image_{{ m }}-{{ i }}"></div>
+            {% if i == 1 %}
+            <h5>Шкафы для реактивов</h5>
+            {% elif i == 2 %}
+            <h5>Шкафы лабораторные</h5>
+            {% elif i == 3 %}
+            <h5>Шкафы навесные лабораторные</h5>
+            {% elif i == 4 %}
+            <h5>Мойки лабораторные</h5>
+            {% elif i == 5 %}
+            <h5>Столы лабораторные</h5>
+            {% elif i == 6 %}
+            <h5>Столы для весов</h5>
+            {% elif i == 7 %}
+            <h5>Столы островные</h5>
+            {% elif i == 8 %}
+            <h5>Столы титровальные</h5>
+            {% elif i == 9 %}
+            <h5>Столы инструментальные</h5>
+            {% elif i == 10 %}
+            <h5>Надставки</h5>
+            {% elif i == 11 %}
+            <h5>Тумбы лабораторные</h5>
+            {% elif i == 12 %}
+            <h5>Комплекты мебели</h5>
+            {% endif %}
+        {% elif t == 2 %}
+        <div class="image image_{{ m }}-{{ i }}"></div>
+            {% if i == 1 %}
+            <h5>Шкафы медицинские</h5>
+            {% elif i == 2 %}
+            <h5>Шкафы для препаратов</h5>
+            {% elif i == 3 %}
+            <h5>Шкафы навесные</h5>
+            {% elif i == 4 %}
+            <h5>Столы рабочие</h5>
+            {% elif i == 5 %}
+            <h5>Столы инструментальные</h5>
+            {% elif i == 6 %}
+            <h5>Тумбы</h5>
+            {% elif i == 7 %}
+            <h5>Комплект "почт медсестры"</h5>
+            {% endif %}
+        {% elif t == 3 %}
+        <div class="image image_{{ m }}-{{ i }}"></div>
+            {% if i == 1 %}
+            <h5>ВШ-1 Базовый</h5>
+            {% elif i == 2 %}
+            <h5>ВШ-2 Универсальный</h5>
+            {% elif i == 3 %}
+            <h5>ВШ-3 Специальный</h5>
+            {% elif i == 4 %}
+            <h5>ВШ-3 для летучих кислот</h5>
+            {% elif i == 5 %}
+            <h5>ВШ-3 для какой-то другой фигни</h5>
+            {% endif %}
+        {% endif %}
+</a>{% endfor %}{% endmacro %}
+
+{% macro MenuContent01(n, t, m) %}{% for i in range(1, n) %}<a href="#" class="content__item">
+        <div class="image image_{{ m }}-{{ i }}"></div>
+        <h5>Название пункта меню {{ m }}-{{ i }}</h5>
+</a>{% endfor %}{% endmacro %}
+
+{% macro MenuContent02(n, t, m) %}{% for i in range(1, n) %}<a href="#" class="content__item">
+        <div class="image image_{{ m }}-{{ t }}-{{ i }}"></div>
+        <h5>Название пункта меню {{ m }}-{{ t }}-{{ i }}</h5>
+</a>{% endfor %}{% endmacro %}
+
+{% macro Footer() %}
+<footer class="page__footer" role="footer">
+    <div class="footer__top">
+        <div class="container">
+            <nav role="navigation">
+                <div class="row">
+                    <div class="hidden-xs col-sm-4">
+                        <a href="#" class="logo"></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <ul>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Каталог</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <ul>
+                            <li><a href="#">Прайс-лист</a></li>
+                            <li><a href="#">Скидки</a></li>
+                            <li><a href="#">Дилерам</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <div class="container">
+            <address>Copyright © 2019 г.</address>
+        </div>
+    </div>
+</footer>
+{% endmacro %}
+
+{% macro Card01() %}
+<div class="card">
+    <p class="psmall">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <a href="#" role="button" class="btn btn-xs btn-gray">Подробнее</a>
+</div>
+{% endmacro %}
+
+
+{% macro CardCategory(n, text="") %}
+<div class="card category-card card-{{ n }}">
+    <div class="image"></div>
+    <div class="overlay"></div>
+    <h3>{{ text }}</h3>
+    <a href="#" class="visible-xs-inline-block">Подробнее<span class="icon icon-right"></span></a>
+</div>
+{% endmacro %}
+
+
+{% macro CategoryCard(n, text="") %}
+<div class="card category-card">
+    <div class="image image-{{ n }}"></div>
+    <div class="overlay"></div>
+    <h3>{{ text }}</h3>
+    <a href="#" class="visible-xs-inline-block">Подробнее<span class="icon icon-right"></span></a>
+</div>
+{% endmacro %}
+
+{% macro TypeCard(n, text="") %}
+<div class="type-card">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div class="card image image-{{ n }}"></div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <div class="type-info">
+                <div class="type-info__header">
+                    <h3>{{ text }}</h3>
+                    <h4>Габариты: 1500x1500x600</h4>
+                    <div class="price"><span class="label">цена от:</span> 19900р</div>
+                </div>
+                <div class="type-info__body">
+                    {{ Accordion('Описание') }}
+                    {{ Accordion('Комплектация') }}
+                    {{ Accordion('Предназначение') }}
+                    <div class="type-info__btns">
+                        <a type="button" href="#" role="button" class="btn btn-lg btn-main">Узнать больше<span class="icon icon-right"></span></a><a type="button" href="#" role="button" class="btn btn-lg btn-gray">Получить скидку<span class="icon icon-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro Accordion(text="") %}
+<div class="accordion">
+    <a href="#" class="accordion__title">{{ text }}<span class="icon icon-down"></span><span class="icon icon-up"></span></a>
+    <div class="accordion__body">
+        {% if text == 'Комплектация' %}
+        {{ Table('small', 5, 5) }}
+        {% else %}
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro Table(type="", rows=5, cols=5) %}
+<div class="table-responsive">
+    {% if type == 'small' %}
+    <table class="table-small">
+    {% else %}
+    <table class="table-large">
+    {% endif %}
+        <tr>
+            {% for c in range(1, cols + 1) %}
+            <th>Заголовок {{ c }}</th>
+            {% endfor %}
+        </tr>
+        {% for i in range(1, rows + 1) %}
+        <tr>
+            {% for c in range(1, cols + 1) %}
+            <td>Ячейка {{ c }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endmacro %}
+
+{% macro InfoLeft(n="") %}
+<div class="info-block info-block--left">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div style="height: 250px;" class="card image image-{{ n }}"></div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <div class="info-block__text">
+                <h3>Заголовок на всякий случай</h3>
+                <p>Линейка мебели ПГЛ - одна из самых успешных и проверенных у нашей компании. Это самая надёжная и самая долговечная мебель для любых условий эксплуатации.  Конструктивно состоит из алюминиевого, глубоко анодированного каркаса и панелей из высокопрочного HPL -пластика</p>
+                <p>Мебель ПГЛ уже больше десяти лет успешно эксплуатируется в химических и биологических лабораториях, на производстве, в медицинских учреждениях,  школах  - везде, где требуется надёжность, долговечность и устойчивость к агрессивным средам.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro InfoRight(n="") %}
+<div class="info-block info-block--right">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="info-block__text">
+                <h3>Заголовок на всякий случай</h3>
+                <p>Линейка мебели ПГЛ - одна из самых успешных и проверенных у нашей компании. Это самая надёжная и самая долговечная мебель для любых условий эксплуатации.  Конструктивно состоит из алюминиевого, глубоко анодированного каркаса и панелей из высокопрочного HPL -пластика</p>
+                <p>Мебель ПГЛ уже больше десяти лет успешно эксплуатируется в химических и биологических лабораториях, на производстве, в медицинских учреждениях,  школах  - везде, где требуется надёжность, долговечность и устойчивость к агрессивным средам.</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div style="height: 300px;" class="card image image-{{ n }}"></div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

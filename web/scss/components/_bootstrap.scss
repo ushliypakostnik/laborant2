@@ -1,0 +1,444 @@
+// Bootsrap Customize
+//////////////////////////////////////////////////////
+
+.container,
+.container-fluid,
+.dropdown-menu > li > a {
+    padding-left: $size;
+    padding-right: $size;
+}
+
+// Мобильные отступы по горизонтали во всех контейнерах
+@include mobile {
+
+    .container,
+    .container-fluid,
+    .dropdown-menu > li > a {
+        padding-left: $size / 2;
+        padding-right: $size / 2;
+    }
+    .alert {
+        padding: $size / 2;
+    }
+}
+
+// Кнопки
+.btn {
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: $border-radius-small;
+    @include text($sans-font-family, $font-size-normal, $sans-bold-font-weight);
+
+    &:active {
+        box-shadow: inset $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color-02;
+    }
+
+    &:hover, &:active {
+        @include lg-and-md {
+            opacity: 0.9;
+        }
+    }
+
+    &.btn-lg {
+        border-radius: $border-radius-large;
+        @include text($sans-font-family, $font-size-normal, $sans-bold-font-weight);
+    }
+    &.btn-sm {
+        border-radius: $border-radius-small;
+        @include text($sans-font-family, $font-size-small, $sans-bold-font-weight);
+    }
+    &.btn-xs {
+        border-radius: $border-radius-xs;
+        @include text($sans-font-family, $font-size-xsmall, $sans-bold-font-weight);
+    }
+
+    &.btn-main {
+        @include btn-color($white, $main-color);
+    }
+
+    &.btn-gray {
+        @include btn-color($white, $text-color-light);
+    }
+
+    &.btn-inv {
+        background: transparent;
+        border: 3px solid $main-color;
+
+        &, &:hover {
+            color: $main-color;
+        }
+    }
+
+
+    @include xs {
+        &.btn-lg,
+        &.btn-inv {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0; 
+        }
+    }
+}
+
+// Выключенные кнопки
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    opacity: 0.5;
+}
+
+// Поля ввода
+
+.form-control {
+    border: none;
+    line-height: $input-height-base;
+    height: $input-height-base + ($padding-base-vertical * 2) + ($border-width * 2);
+    border-radius: $border-radius-base;
+    box-shadow: 0 0 0 0 transparent;
+    transition: border-color $transition-duration $transition-timing-function $transition-delay;
+    @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+
+    &:focus {
+        box-shadow: 0 0 0 0 transparent;
+    }
+
+    &:active, &:focus {
+        outline: none !important;
+        border: none;
+    }
+
+    &.input-lg {
+        line-height: $input-height-large;
+        border-radius: $border-radius-large;
+        @include text($sans-font-family, $font-size-large, $sans-bold-font-weight);
+    }
+
+    &.input-sm {
+        line-height: $input-height-small;
+        border-radius: $border-radius-xs;
+    }
+}
+
+.form-control-feedback {
+    color: $input-color-placeholder;
+    line-height: $input-height-base;
+}
+
+.has-feedback .form-control {
+    padding-right: $input-height-base;
+}
+
+// Валидация контролов Bootstrap
+
+.has-success {
+    .help-block {
+        color: $state-success-text;
+    }
+    .form-control {
+        &, &:focus {
+            border-color: $state-success-text;
+        }
+    }
+}
+.has-warning {
+    .help-block {
+        color: $state-warning-text;
+    }
+    .form-control {
+        &, &:focus {
+            border-color: $state-warning-text;
+        }
+    }
+}
+.has-error {
+    .help-block {
+        color: $state-danger-text;
+    }
+    .form-control {
+        &, &:focus {
+            border-color: $state-danger-text;
+        }
+    }
+}
+.has-success,
+.has-warning,
+.has-error {
+    .form-control:focus {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+// Формы
+.form {
+
+    // Основной стиль для форм
+    &.form-style {
+        background: $gray-lighter;
+        padding: ($size * 2) 0 ($size * 1.5);
+        margin: ($size * 2) 0;
+        border-radius: $border-radius-large;
+        @include clearfix;
+
+        &.form-horizontal {
+
+            .control-label {
+                @media (min-width: $screen-sm) {
+                    height: $input-height-base;
+                    line-height: $input-height-base;
+                    padding: 0;
+                }
+            }
+
+        }
+
+        select[multiple] {
+            padding-left: 0;
+            padding-right: 0;
+
+            option {
+                padding-left: $padding-base-horizontal;
+                padding-right: $padding-base-horizontal;
+            }
+        }
+
+
+        &.labels-on-the-left {
+
+            .control-label {
+                margin-bottom: 0;
+
+                @include desktop-and-tablet {
+                    text-align: right;
+                    line-height: $line-height-normal-custom + ($padding-base-vertical * 2) + ($border-width * 2);
+                }
+                @include mobile {
+                    margin-bottom: $size / 4;
+                }
+            }
+        }
+
+
+        .form-group {
+            padding: 0 $size / 2;
+            margin-bottom: $size / 2;
+
+            // Подвешенное сообщение-подсказка для контролов
+            &.pendant-help-block,
+            .pendant-help-block {
+                position: relative;
+                margin-bottom: ($size / 4) + $line-height-xsmall-custom;
+
+                // Cообщение-подсказка
+                .help-block {
+                    position: absolute;
+                    bottom: -1 * $line-height-xsmall-custom;
+                    left: $size / 2;
+                    margin: 0;
+                    @include text($sans-font-family, $font-size-xsmall, $sans-regular-font-weight);
+                }
+            }
+        }
+    }
+}
+
+// Dropdowns
+//////////////////////////////////////////////////////
+
+// Bootstrap caret to up
+.dropdown.open {
+    .dropdown-toggle .caret {
+        @extend %caret-up;
+    }
+}
+
+.menu-dropdown {
+    .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        right: $size;
+        top: calc(100% - 25px);
+        transition: opacity $transition-duration $transition-timing-function;
+        opacity: 0;
+    }
+}
+
+// Дропдауны по умолчанию
+.dropdown-menu {
+    margin-top: 0;
+    max-height: 450px;
+    min-width: 1px;
+    z-index: $popups-layout;
+    padding: 0;
+    border: 0;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+}
+
+// Для "выбранных пунктов меню" - класс .active
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    background: transparent;
+    color: $disabled-color;
+    cursor: default;
+    pointer-events: none;
+}
+
+// Лечение стандартного поведения из Бурстрапа
+.btn-group {
+    &.open .dropdown-toggle {
+        box-shadow: inset 0 0 0 0;
+    }
+}
+// Лечение проблемы с закрытием дропдауна на мобильных на Android и ioS
+.dropdown-backdrop {
+    z-index: 0;
+}
+
+// Для дропдаунов выпадающих при наведении
+.hover-dropdown {
+    &:hover > .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+// Component animations
+.fade {
+    transition: opacity ($transition-duration * 10) linear;
+}
+
+
+// Modals
+//////////////////////////////////////////////////////
+
+.modal-backdrop {
+    z-index: $panels-layout + 50;
+}
+
+// Модальное окно
+.modal {
+    z-index: $popups-layout;
+
+    &.fade .modal-dialog {
+        transform: translate(0, -25%);
+    }
+
+    &.in .modal-dialog {
+        transform: translate(0, 0);
+    }
+
+    .modal-dialog {
+
+        .modal-content {
+            background: transparent;
+            border: none;
+            margin: 0 auto;
+            text-align: center;
+            border-radius: $border-radius-large;
+            box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+
+            .modal-header {
+                position: relative;
+                border-bottom: none;
+                background: $main-color;
+                border-radius: $border-radius-large $border-radius-large 0 0;
+
+                .modal-title {
+                    color: $white;
+                    @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+                }
+
+                .close {
+                    position: absolute;
+                    top: $size / 2;
+                    right: $size / 2;
+                    color: $white;
+                }
+            }
+
+            .modal-body {
+                background: $white;
+                padding-top: $size;
+                padding-bottom: $size;
+                padding-left: $size / 2;
+                padding-right: $size / 2;
+                border-radius: 0;
+            }
+
+            .modal-footer {
+                background: $white;
+                border-top: none;
+                text-align: center;
+                border-radius: 0 0 $border-radius-large $border-radius-large;
+
+                .btn + .btn {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+// Каретка
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top:   $caret-width-base solid;
+    border-right: $caret-width-base solid transparent;
+    border-left:  $caret-width-base solid transparent;
+
+    &.up {
+        @extend %caret-up;
+    }
+}
+
+
+.table-responsive {
+    table {
+        width: 100%;
+        background: darken($gray-lighter, $fade / 4);
+
+        &.table-small {
+            th {
+                @include text($sans-font-family, $font-size-xsmall, $sans-bold-font-weight);
+            }
+
+            td {
+                @include text($sans-font-family, $font-size-xsmall, $sans-regular-font-weight);
+            }
+        }
+
+        &.table-large {
+            th {
+                @include text($sans-font-family, $font-size-small, $sans-bold-font-weight);
+            }
+
+            td {
+                @include text($sans-font-family, $font-size-small, $sans-regular-font-weight);
+            }
+        }
+    }
+
+    tr {
+        &:nth-child(2n + 1) {
+            background: darken($gray-lighter, $fade / 2);
+        }
+
+        &:hover {
+            background: darken($gray-lighter, $fade / 2 + $fade / 4);
+        }
+    }
+
+    th, td {
+        padding: ($size / 4) ($size / 2);
+        text-align: left;
+
+        &:hover {
+            background: darken($gray-lighter, $fade);
+        }
+    }
+}
