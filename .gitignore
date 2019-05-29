@@ -1,7 +1,7 @@
 node_modules
 output
 web/bower_components
-web/static
+web/img
 
 .sass-cache
 npm-debug.log
