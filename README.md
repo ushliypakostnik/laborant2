@@ -5,11 +5,6 @@ Skel_scss_bootstrap3_va01 static project
 Deploy
 ------
 
-Установка системных пакетов
-
-    $ sudo apt-get install nodejs
-    $ sudo apt-get install curl
-
 Установка зависимостей (npm packages, bower packages)
 
     $ npm install
@@ -27,10 +22,6 @@ Deploy
 Сборка проекта в продакшен
 
     $ npm run build
-
-Сборка проекта в продакшен с выгрузкой неминимизированных файлов
-
-    $ ./node_modules/.bin/grunt build:dev
 
 
 Структура проекта
