@@ -119,7 +119,7 @@
 @mixin btn-color($color, $background) {
     background-color: $background;
     color: $color;
-    transition: background $transition-duration $transition-timing-function;
+    @include transition(background);
 
     &:hover, &:active {
         background-color: lighten($background, $fade / 100%);
@@ -140,7 +140,7 @@
 
 // Примесь для покраски ссылок
 @mixin link-style($color, $color-hover) {
-    transition: color $transition-duration $transition-timing-function;
+    @include transition(color);
 
     &, &:focus {
         color: $color;
@@ -159,37 +159,42 @@
     }
 }
 
-// Transform
+// Effects
+//////////////////////////////////////////////////////
 
 // Multi-transition
+// Pass in any number of transitions
 @mixin transition($transitions...) {
-    $unfoldedTransitions: ();
-    @each $transition in $transitions {
-        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
-    }
+  $unfoldedTransitions: ();
 
-    transition: $unfoldedTransitions;
+  @each $transition in $transitions {
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+  }
+
+  transition: $unfoldedTransitions;
 }
 
 @function unfoldTransition($transition) {
-    // Default values
-    $property: all;
-    $duration: $transition-duration;
-    $easing: null; // Browser default is ease, which is what we want
-    $delay: null; // Browser default is 0, which is what we want
-    $defaultProperties: ($property, $duration, $easing, $delay);
+  // Default values
+  $property: all;
+  $duration: $transition_duration;
+  $easing: $transition_timing-function;
+  $delay: $transition_delay;
+  $defaultProperties: ($property, $duration, $easing, $delay);
 
-    // Grab transition properties if they exist
-    $unfoldedTransition: ();
-    @for $i from 1 through length($defaultProperties) {
-        $p: null;
-        @if $i <= length($transition) {
-            $p: nth($transition, $i)
-        } @else {
-            $p: nth($defaultProperties, $i)
-        }
-        $unfoldedTransition: append($unfoldedTransition, $p);
+  // Grab transition properties if they exist
+  $unfoldedTransition: ();
+
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+
+    @if $i <= length($transition) {
+      $p: nth($transition, $i);
+    } @else {
+      $p: nth($defaultProperties, $i);
     }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
 
-    @return $unfoldedTransition;
+  @return $unfoldedTransition;
 }
